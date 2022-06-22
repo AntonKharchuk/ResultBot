@@ -13,7 +13,9 @@ namespace ResultBot
 
         public Clients()
         {
-            Client.BaseAddress = new Uri(@"https://localhost:44301/");
+            //Client.BaseAddress = new Uri(@"https://localhost:44301/");
+            Client.BaseAddress = new Uri(@"https://api-4music.herokuapp.com/");
+
 
         }
     }

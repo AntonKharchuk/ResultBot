@@ -71,7 +71,7 @@ namespace ResultBot
             var botMe = await botClient.GetMeAsync();
 
             Console.WriteLine($"Bot {botMe.Username} start working");
-            UserWatching.AddTextAsync($"Bot {botMe.Username} start working \t \t \t {DateTime.Now}");
+
             Console.ReadKey();
 
         }
@@ -193,7 +193,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {callbackQuery.From} AddPlaylist \t \t \t {callbackQuery.Message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {callbackQuery.From} AddPlaylist");
                     //---
                     await botClient.SendTextMessageAsync(callbackQuery.Message.Chat.Id, "Type Playlist Name");
@@ -387,7 +387,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} /start \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} /start");
                     //---
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Chose command:");
@@ -400,7 +400,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} /keyboard \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} /keyboard");
                     //---
                     ReplyKeyboardMarkup replyKeyboardMarkup =
@@ -424,7 +424,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Serch \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} Serch");
                     //---
                     await botClient.SendTextMessageAsync(message.Chat.Id, "What to serch?");
@@ -434,7 +434,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Trend \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} Trend");
                     //---
 
@@ -489,7 +489,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Artist \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} Artist");
                     //---
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Type Artist Name");
@@ -500,7 +500,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Friends \t \t \t {message.Date.AddHours(3)}");
+    
                     Console.WriteLine($"User {message.From} Friends");
                     //---
 
@@ -572,7 +572,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Likes \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} Likes");
                     //---
                   
@@ -635,7 +635,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Playlists \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} Playlists");
                     //---
 
@@ -695,7 +695,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} Genres \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} Genres");
                     //---
 
@@ -807,7 +807,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} {message.Text} \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} {message.Text}");
                     //---
 
@@ -909,7 +909,7 @@ namespace ResultBot
                     max = int.Parse(_maxRequestID);
                     max++;
                     _maxRequestID = max.ToString();
-                    UserWatching.AddTextAsync($"User {message.From} {message.Text} \t \t \t {message.Date.AddHours(3)}");
+
                     Console.WriteLine($"User {message.From} {message.Text}");
                     //---
 

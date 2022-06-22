@@ -15,10 +15,7 @@ namespace ResultBot
     class UserWatching
     {
 
-        public static async Task AddTextAsync(string text)
-        {
-            await File.AppendAllTextAsync(@"D:\Code\C#\ynik\ResultBot\ResultBot\BotFiles\BotHistory.txt", text + "\n");
-        }
+      
         public static async Task AddRecuestAsync( string CurrentId, string UserIdt, string UserNamet, string Requestt, string Timet)
         { 
             UserRequest request = new UserRequest
