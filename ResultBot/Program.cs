@@ -23,7 +23,10 @@ namespace ResultBot
 
             Bot tGBot = new Bot();
             tGBot.Start();
-            Console.ReadKey();
+            while (true)
+            {
+
+            }
 
 
         }
