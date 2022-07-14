@@ -913,7 +913,20 @@ namespace ResultBot
                     Console.WriteLine($"User {message.From} {message.Text}");
                     //---
 
-                    result = await clients.Client.GetAsync($"/YouTubeApi/artistbyrequest?artist={message.Text}");
+                    string arrt = "";
+                    if (message.Text[0] == '*')
+                    {
+                        for (int i = 1; i < message.Text.Length; i++)
+                        {
+                            arrt += message.Text[i];
+                        }
+                    }
+                    else
+                    {
+                        arrt = message.Text;
+                    }
+
+                    result = await clients.Client.GetAsync($"/YouTubeApi/artistbyrequest?artist={arrt}");
 
                     if(result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -960,16 +973,20 @@ namespace ResultBot
                                 );
                             await botClient.SendTextMessageAsync(message.Chat.Id, videos[0].ChannelTitle, replyMarkup: keyboardMarkup);
 
-                            string WhatToCopy = "";
-                            for (int i = 0; i < (videos.Count > 20 ? 20 : videos.Count); i++)
+                            if (message.Text[0] == '*')
                             {
-                                WhatToCopy += $"https://www.youtube.com/watch?v={videos[i].VideoId} \n";
-                                if (i % 5 == 4)
+                                string WhatToCopy = "";
+                                for (int i = 0; i < (videos.Count > 20 ? 20 : videos.Count); i++)
                                 {
-                                    await botClient.SendTextMessageAsync(message.Chat.Id, WhatToCopy);
-                                    WhatToCopy = "";
+                                    WhatToCopy += $"https://www.youtube.com/watch?v={videos[i].VideoId} \n";
+                                    if (i % 5 == 4)
+                                    {
+                                        await botClient.SendTextMessageAsync(message.Chat.Id, WhatToCopy);
+                                        WhatToCopy = "";
+                                    }
                                 }
                             }
+                            
                         }
                         else
                         {
