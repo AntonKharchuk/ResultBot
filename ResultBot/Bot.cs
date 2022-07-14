@@ -964,10 +964,12 @@ namespace ResultBot
                             for (int i = 0; i < (videos.Count > 20 ? 20 : videos.Count); i++)
                             {
                                 WhatToCopy += $"https://www.youtube.com/watch?v={videos[i].VideoId} \n";
+                                if (i % 5 == 4)
+                                {
+                                    await botClient.SendTextMessageAsync(message.Chat.Id, WhatToCopy);
+                                    WhatToCopy = "";
+                                }
                             }
-
-                            await botClient.SendTextMessageAsync(message.Chat.Id, WhatToCopy);
-
                         }
                         else
                         {
