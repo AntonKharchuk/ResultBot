@@ -959,6 +959,15 @@ namespace ResultBot
                                 buttons
                                 );
                             await botClient.SendTextMessageAsync(message.Chat.Id, videos[0].ChannelTitle, replyMarkup: keyboardMarkup);
+
+                            string WhatToCopy = "";
+                            for (int i = 0; i < (videos.Count > 20 ? 20 : videos.Count); i++)
+                            {
+                                WhatToCopy += $"https://www.youtube.com/watch?v={videos[i].VideoId} \n";
+                            }
+
+                            await botClient.SendTextMessageAsync(message.Chat.Id, WhatToCopy);
+
                         }
                         else
                         {
