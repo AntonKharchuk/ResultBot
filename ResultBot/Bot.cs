@@ -394,6 +394,9 @@ namespace ResultBot
                    // await botClient.SendTextMessageAsync(message.Chat.Id, "/dirty");
                     await botClient.SendTextMessageAsync(message.Chat.Id, "/keyboard");
 
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "/help");
+
+
                     return;
                 case "/keyboard":
                     UserWatching.AddRecuestAsync(_maxRequestID, message.From.Id.ToString(), message.From.Username, "/keyboard", message.Date.AddHours(3).ToString());
@@ -418,6 +421,17 @@ namespace ResultBot
                     };
 
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Chose option", replyMarkup: replyKeyboardMarkup);
+                    return;
+                case "/help":
+                    UserWatching.AddRecuestAsync(_maxRequestID, message.From.Id.ToString(), message.From.Username, "/help", message.Date.AddHours(3).ToString());
+                    max = int.Parse(_maxRequestID);
+                    max++;
+                    _maxRequestID = max.ToString();
+
+                    Console.WriteLine($"User {message.From} /help");
+                    //---
+                   
+                    await botClient.SendTextMessageAsync(message.Chat.Id, $"Hi, {message.From.Username}! \n I fetch tracks from YouTube!\n Use /keyboard to open a keyboard\n Search to receive an ordinary YouTube request\n Artist to get all popular songs of the artist(start your request with * to get links)\n Trend to get today made music\n Genres to sort music by genres\n Likes to view Liked songs\n  Playlists to view your Playlists\n Friends to see Likes of someone with similar musical taste");
                     return;
                 case "Search":
                     UserWatching.AddRecuestAsync(_maxRequestID, message.From.Id.ToString(), message.From.Username, "@Serch", message.Date.AddHours(3).ToString());
@@ -976,7 +990,7 @@ namespace ResultBot
                             if (message.Text[0] == '*')
                             {
                                 string WhatToCopy = "";
-                                for (int i = 0; i < (videos.Count > 20 ? 20 : videos.Count); i++)
+                                for (int i = 0; i < (videos.Count > 25 ? 25 : videos.Count); i++)
                                 {
                                     WhatToCopy += $"https://www.youtube.com/watch?v={videos[i].VideoId} \n";
                                     if (i % 5 == 4)
