@@ -431,7 +431,7 @@ namespace ResultBot
                     Console.WriteLine($"User {message.From} /help");
                     //---
                    
-                    await botClient.SendTextMessageAsync(message.Chat.Id, $"Hi, {message.From.Username}! \n I fetch tracks from YouTube!\n Use /keyboard to open a keyboard\n Search to receive an ordinary YouTube request\n Artist to get all popular songs of the artist(start your request with * to get links)\n Trend to get today made music\n Genres to sort music by genres\n Likes to view Liked songs\n  Playlists to view your Playlists\n Friends to see Likes of someone with similar musical taste");
+                    await botClient.SendTextMessageAsync(message.Chat.Id, $"Hi, {message.From.Username}!\nI fetch tracks from YouTube!\nUse /keyboard to open a keyboard\nSearch to receive an ordinary YouTube request\nArtist to get all popular songs of the artist(start your request with * to get links)\nTrend to get today made music\nGenres to sort music by genres\nLikes to view Liked songs\nPlaylists to view your Playlists\nFriends to see Likes of someone with similar musical taste");
                     return;
                 case "Search":
                     UserWatching.AddRecuestAsync(_maxRequestID, message.From.Id.ToString(), message.From.Username, "@Serch", message.Date.AddHours(3).ToString());
