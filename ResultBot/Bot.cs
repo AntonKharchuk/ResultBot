@@ -433,6 +433,7 @@ namespace ResultBot
                    
                     await botClient.SendTextMessageAsync(message.Chat.Id, $"Hi, {message.From.Username}!\nI fetch tracks from YouTube!\nUse /keyboard to open a keyboard\nSearch to receive an ordinary YouTube request\nArtist to get all popular songs of the artist(start your request with * to get links)\nTrend to get today made music\nGenres to sort music by genres\nLikes to view Liked songs\nPlaylists to view your Playlists\nFriends to see Likes of someone with similar musical taste");
                     return;
+
                 case "Search":
                     UserWatching.AddRecuestAsync(_maxRequestID, message.From.Id.ToString(), message.From.Username, "@Serch", message.Date.AddHours(3).ToString());
                     max = int.Parse(_maxRequestID);
